@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.1.30)  11 FEB 2019 12:39
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.1.30)  12 FEB 2019 09:52
 entering extended mode
 **./IntroSpeech.tex
 (IntroSpeech.tex
@@ -357,6 +357,18 @@ LaTeX Warning: Label `fig:sub1' multiply defined.
 
 LaTeX Warning: Label `sub@fig:sub1' multiply defined.
 
+
+LaTeX Warning: Label `fig:sub1' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:sub1' multiply defined.
+
+
+LaTeX Warning: Label `fig:sub1' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:sub1' multiply defined.
+
 )
 \openout1 = `IntroSpeech.aux'.
 
@@ -508,17 +520,27 @@ File: ./figures/fig6.jpg Graphic file (type jpg)
 <use ./figures/fig6.jpg>
 Package pdftex.def Info: ./figures/fig6.jpg  used on input line 135.
 (pdftex.def)             Requested size: 187.37682pt x 197.25192pt.
- [3 <./figures/fig5.jpg> <./figures/fig6.jpg>]
-(IntroSpeech.aux)
+<./figures/fig7.jpg, id=21, 2262.4525pt x 1953.2975pt>
+File: ./figures/fig7.jpg Graphic file (type jpg)
+<use ./figures/fig7.jpg>
+Package pdftex.def Info: ./figures/fig7.jpg  used on input line 145.
+(pdftex.def)             Requested size: 209.12683pt x 180.52817pt.
+<./figures/fig8.jpg, id=22, 2656.92625pt x 2425.06pt>
+File: ./figures/fig8.jpg Graphic file (type jpg)
+<use ./figures/fig8.jpg>
+Package pdftex.def Info: ./figures/fig8.jpg  used on input line 152.
+(pdftex.def)             Requested size: 196.57973pt x 179.39243pt.
+ [3 <./figures/fig5.jpg> <./figures/fig6.jpg> <./figures/fig7.jpg> <./figures/f
+ig8.jpg>] (IntroSpeech.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 5128 strings out of 492946
- 80390 string characters out of 3124934
- 156996 words of memory out of 3000000
- 8944 multiletter control sequences out of 15000+200000
+ 5138 strings out of 492946
+ 80588 string characters out of 3124934
+ 157996 words of memory out of 3000000
+ 8952 multiletter control sequences out of 15000+200000
  10492 words of font info for 38 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  42i,10n,43p,479b,501s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -529,14 +551,16 @@ eX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/lgdillin/AppData/Loca
 l/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/lgdill
 in/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><
 C:/Users/lgdillin/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts
-/cm/cmr7.pfb><C:/Users/lgdillin/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/p
-ublic/amsfonts/cm/cmr9.pfb><C:/Users/lgdillin/AppData/Local/Programs/MiKTeX 2.9
-/fonts/type1/public/amsfonts/cm/cmss12.pfb><C:/Users/lgdillin/AppData/Local/Pro
-grams/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/lgdillin/A
-ppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on IntroSpeech.pdf (3 pages, 4482307 bytes).
+/cm/cmr6.pfb><C:/Users/lgdillin/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/p
+ublic/amsfonts/cm/cmr7.pfb><C:/Users/lgdillin/AppData/Local/Programs/MiKTeX 2.9
+/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/lgdillin/AppData/Local/Progr
+ams/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmss12.pfb><C:/Users/lgdillin/App
+Data/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Us
+ers/lgdillin/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
+mti10.pfb>
+Output written on IntroSpeech.pdf (3 pages, 6281500 bytes).
 PDF statistics:
- 56 PDF objects out of 1000 (max. 8388607)
+ 62 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 21 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 31 words of extra memory for PDF output out of 10000 (max. 10000000)
 
