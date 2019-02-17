@@ -23,6 +23,9 @@
 
 % \usepackage[parfill]{parskip} % Activate to begin paragraphs with an empty line rather than an indent
 
+\usepackage{amsmath} % apparently this helps with set notation
+\usepackage{amssymb}
+
 %%% PACKAGES
 \usepackage{booktabs} % for much better looking tables
 \usepackage{array} % for better arrays (eg matrices) in maths
@@ -81,7 +84,7 @@
 
 %%% The "real" document content comes below...
 
-\title{Research Topic Intro}
+\title{Research Topic Intro: Mandlebrot Set}
 \author{Liam Dillingham}
 %\date{} % Activate to display a given date or no date (if empty),
          % otherwise the current date is printed 
@@ -89,76 +92,28 @@
 \begin{document}
 \maketitle
 
-\section{Introduction}
-Visualizing the fourth dimension is hard, if not impossible.  However, I've come up with some rudimentary ideas on how to make this possible.  Although undeveloped, I think it would be intersting to explore some of these ideas, and hope that I can develop them into something useful as time goes on. \\ 
+\section{Background}
 
-One of the aspects of my topic that I think would be intersting to share and is critical to the idea, is the "infinte-book" concept.  Since the first dimension is made of $0$-d points, the $2$nd of $1$-d lines, the $3$rd of $2$-d planes, then the fourth can be made of $3$-d spaces.  Since we live in the third dimension, we cannot fully visualize the fourth dimension. However, we can view a \textit{segment} of the fourth dimension using a series of three-dimensional spaces.
+The Mandlebrot Set is a set of numbers that fulfill the constraints of an equation iterated on the complex plane.  We can define the Mandlebrot Set as: \\ 
+
+$W = \{ c \in \mathbb{C} \mid \forall n \leq N, |z| \leq 2; \text{ where }  f_c^{n}(z) = z^{2}+c\}$. \\ 
+
+That is, the Mandlebrot set is all complex numbers such that given the equation \\$f_c^{n}(z) = z^{2}+c$, the output of this equation, $z$, has a magnitude $\leq 2$ for every iteration up to and including $N$.  Note that the "exponent" on $f_c^{n}$ does not mean we take the power of it, but rather it is the number of iterations of the function on $c$, feeding the output $z$ from the $i$th iteration into the $i+1$ iteration, and where $c$ is the selected complex number we wish to test on. \\ 
+
+The Mandlebrot Set's interest comes from the visualization of it, where points in the complex plane that are accepted are colored black, and points rejected by the set's constraints are colored white.  Note that since this is usually calculated on a computer, we always have some margin of error where we are accepting points into the set that violate the constraints of the set, since it may take an arbitrarily large number of iterations to grow past the bounding.  Note also that we don't bother computing any points $<-2$ or $>2$ since their magnitude violates the condition initially.  
 
 \begin{figure}[!htbp]
   	\centering
    	\begin{subfigure}[p]{0.5\linewidth}
-    	\includegraphics[width=\linewidth]{./figures/fig1.jpg}
-	\caption{A 4D line segment split about the z-axis}
+    	\includegraphics[width=\linewidth]{./figures/Mandelset_simple.png}
+	\caption{Simple drawing of Mandlebrot Set coloring}
 	\label{fig:sub1}
    	\end{subfigure}
 \end{figure} 
 
-This is where I'd like to introduce the infinite-book concept.  As shown above, we have a four-dimensional line segment. If you notice, there are two 3D spaces here.  
-The second space, $<x_2, y_2, z_2>$, is folded between the positive $x$-axis of the first space, and as we continue our motion through the fourth dimension in the direction of the second space, the second space will expand to take up a larger portion of the diagram, and will begin to instead fold the first space behind it until it \textit{"disappears"} from the diagram.
+The set becomes more interesting as we observe the boundary, where the slightest adjustment $\epsilon$ in the values can produce wildly different results in the acceptance of a point. In addition, by increasing the number of iterations to an arbitrarily large degree, we improve the accuracy of acceptance and improve the level of detail of the boundary.  We can improve our understanding of the growth of the values under the equation $f_c^{n}$ by adding color to the visualization. \\ 
 
-It should be worth noting, that because this space is continuous, if you observe the parts of the diagram that imply some sort of boundary between the two spaces, that there are an uncountable number of spaces in between the two spaces we see here, just as there are an uncountable number of single points between any two points on a line segment.
-
-\begin{figure}[!htbp]
-  	\centering
-   	\begin{subfigure}[p]{1.0\linewidth}
-    	\includegraphics[width=\linewidth]{./figures/fig4.jpg}
-	\caption{A 4D line segment with some midpoint and analogous 1D segment}
-	\label{fig:sub1}
-   	\end{subfigure}
-\end{figure} 
-
-As you can see above, we are peeling open one of those boundaries to show yet another space, space $3$, folded between the boundary of the first and second spaces.  I'm not sure yet on how to show this visually, other than assume that $space_1 \leq space_3 \leq space_2$. \\ 
-
-\newpage
-There are other questions that can be asked about this diagram, such as: Does the proportion of volume that one space takes up over another in the diagram signify anything? Why does the space split around the $z$-axis like that? I don't have answers to those questions, but I though it would be worthwile to explore some of the different ways in which we could demonstrate traveling between 3D spaces.
-
-\begin{figure}[!htbp]
-  	\centering
-   	\begin{subfigure}[!p]{0.5\linewidth}
-	\centering
-    	\includegraphics[width=\linewidth]{./figures/fig5.jpg}
-	\caption{4D line segment showing a rectangular transition through the $x$-axis}
-	\label{fig:sub1}
-   	\end{subfigure}
-  	\centering
-   	\begin{subfigure}[!p]{0.448\linewidth}
-	\centering
-    	\includegraphics[width=\linewidth]{./figures/fig6.jpg}
-	\caption{4D line segment showing a circular transition at an arbitrary angle}
-	\label{fig:sub1}
-   	\end{subfigure}
-\end{figure} 
-
-\begin{figure}[!htbp]
-  	\centering
-   	\begin{subfigure}[!p]{0.5\linewidth}
-	\centering
-    	\includegraphics[width=\linewidth]{./figures/fig7.jpg}
-	\caption{4D line segment through the $z^{+}$ axis with 2 midpoints}
-	\label{fig:sub1}
-   	\end{subfigure}
-  	\centering
-   	\begin{subfigure}[!p]{0.47\linewidth}
-	\centering
-    	\includegraphics[width=\linewidth]{./figures/fig8.jpg}
-	\caption{4D line segment splitting about the $xy$-plane}
-	\label{fig:sub1}
-   	\end{subfigure}
-\end{figure} 
-
-
-Not all of these could be useful, provable, or feasible, but I think it's useful to at least explore these different implementations of the model to aid in understanding and developing it.
-
+We color points that grow larger than 2 quickly red, and points that grow slowly violet, while all other colors are given to the different intermediate rates.  The number of iterations that qualifies a point as being red depends on the proportion it takes from our limit, $N$.  Remember than any point that does not exceed 2 at $N$ iterations is painted black and in the set.
 
 \end{document}
 
