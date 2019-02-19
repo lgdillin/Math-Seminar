@@ -89,26 +89,28 @@
 \begin{document}
 \maketitle
 
-\section{Introduction}
-Visualizing the fourth dimension is hard, if not impossible.  However, I've come up with some rudimentary ideas on how to make this possible.  Although undeveloped, I think it would be intersting to explore some of these ideas, and hope that I can develop them into something useful as time goes on. \\ 
+The mandelbrot set is a set of numbers whose orbits remain constrained for all iterations give their initial parameters. I want to start by clarifying what an orbit is.  
 
-One of the aspects of my topic that I think would be intersting to share and is critical to the idea, is the "infinte-book" concept.  Since the first dimension is made of zero-dimensional points, the $2$nd of one-dimensional lines, the $3$rd of two-dimensional planes, then the fourth can be made of three-dimensional spaces.  Since we live in the third dimension, we cannot fully visualize the fourth dimension. However, we can view a \textit{segment} of the fourth dimension using a series of three-dimensional spaces. \\
+The orbit of a point $x_0$ under some function $f$ is the sequence of points following $x_0$ under iteration, where $x_0$ is called the \textit{seed}. so 
+$$x_0, f(x_0)=x_1, f(x_1)=x_2, ..., f(x_{n-1})=x_n$$.
 
-\textit{ Show first image} \\ 
+So we are taking the seed and iterating it, looping the output back into the next iteration. We can label the functions iteration index as follows:
 
-This is where I'd like to introduce the infinite-book concept.  As shown above, we have a four-dimensional line segment. If you notice, there are two 3D spaces here.  
-The second space, space 2, is folded between the positive $x$-axis of the first space, and as we continue our motion through the fourth dimension in the direction of the second space, the second space will expand to take up a larger portion of the diagram, and will begin to instead fold the first space behind it until it \textit{"disappears"} from the diagram.
+$$f^{n}(...f^{2}(f^{1}(x_0))...)$$
 
-It should be worth noting, that because this space is continuous, if you observe the parts of the diagram that imply some sort of boundary between the two spaces, that there are an uncountable number of spaces in between the two spaces we see here, just as there are an uncountable number of single points between any two points on a line segment. \\ 
+for $n$ iterations.  Since we are interested in the mandelbrot set, we can introduce its function and try to analyze the behavior of some of its orbits.  The equation is:
 
-\textit{ Show 2nd image} \\ 
+$$f_c^{n}(z) = z^{2} +c$$
 
-As you can see above, we are peeling open one of those boundaries to show yet another space, space $3$, folded between the boundary of the first and second spaces.  I'm not sure yet on how to show this visually, other than assume that $space_1 \leq space_3 \leq space_2$. \\ 
+Where $c$ is a given parameter.  It is worth noting that fixed orbits of a function are points such that $f^{n}(x_0)=x_0$ for all $n$.  Let's graph our function.  It is a quadratic function with y-intercept at $c$. To find the fixed points of our function, we super-impose the line $f(x)=x$, and the intersections are the fixed orbits.  What happens when we choose a random seed given our parameter $c$? 
 
-There are other questions that can be asked about this diagram, such as: Does the proportion of volume that one space takes up over another in the diagram signify anything? Why does the space split around the $x$-axis like that? I don't have answers to those questions, but I thought it would be worthwile to explore some of the different ways in which we could demonstrate traveling between 3D spaces. \\ 
+$$ f_c(x_0)=x_0^{2}+c$$
 
-\textit{ Show final image} \\ 
+First, we start at our seed, and move vertically to the point on the graph, $(x_0, f(x_0))$.  Then we move horizontaly to our diagonal line to the point $(f(x_0),f(x_0)$.  This places us above the point on the quadratic, $(f(x_0), f^{2}(x_0))$, and we can move down to locate it.  By continuing this process, we can find the orbit of our seed $x_0$. \\ 
 
-Not all of these could be useful, provable, or feasible, but I think it's interesting to at least explore these different implementations of the model to aid in understanding and developing it.  The first one we can see is some kind of rectangular transformation, through the positive x-axis, similar to the first example shown.  The next one is a circular transformation through the positive $z$-axis, which also includes two midpoints.  There are potentially many other ways to visualize traveling from one 3D space into another, however, I haven't proven that any of these are legitimate yet.
+However, choosing certain seeds, and following the process will result in our orbit exploding to infinity.  Especially if there are no intersections between the line and the curve. \\ 
+
+So the Mandelbrot set is a set within the complex plane, which, instead of choosing random seeds, we choose the seed of 0, and change our parameter $c$ to test every point in the complex plane.  If the orbit of 0 explodes to infinity given a particular $c$, then that point is not in the Mandelbrot set.
+
 
 \end{document}
