@@ -93,9 +93,35 @@
 \maketitle
 
 \section{Introduction}
-The Mandelbrot Set is a set of numbers, which, given a function under \textit{iteration}, have \textit{orbits} that do not diverge.  What it means to \textit{iterate} a function is, that given a set of initial conditions, we take the output of the function and feed it back into the function as an input.  So for the $i+1$ iteration, we take the output from the $i$th iteration, as well as any necessary parameters to generate the output.  The definition of an \textit{orbit} can be a bit more technical. Since we are using the output of one iteration as the input to the next iteration, then we can think about any point on the graph of the function to look like this: $(f^{(i-1)}(x), \ f^{(i)}(f^{(i-1)}(x)))$, where $x$ may be the output of many previous iterations.  
+The Mandelbrot Set is a set of numbers in $\!C$ that satisfy behaviors under the constrains of a given function.  While the numbers within the set, and the numbers clearly not in the set seem straight-forward, the popular interest in this set comes from the bizarre behavior of what occurs on the boundary of the set.  The behavior of what occurs on the boundary of the set seems to go on with inifinitely minute detail, and there are many videos on the internet of people exploring certain areas of this boundary to incredible precision.  What we want to do is explore some of the concepts behind this behavior, in hopes to have a better understanding of what is occuring when we look at this set.
+
+\section{Iteration of a Function}
+To \textit{iterate} a function $f$ means to take the value of the function for a given input, and pipe that value back in as an input, i.e. 
+$$ f(x_0)=x_1, f(x_1)=x_2, f(x_2)=x_3 ...$$
+Where $x_0$ is some sort of initial input or condition.  We can label these iterations like this: $f^{(0)}(x_0)=x_1, f^{(1)}(x_1)=x_2, ...$ Where $f^{(i)}(x_i)=x_{i+1}$.  It is worth noting that when we graph the iteration of a function, the coordinates look like this: 
+$$( \ x_i, f^{(i)}(x_i)\ ) = (x_i, x_{i+1}) $$ 
+The reason it is worth noting this is there are cases when $x_i = x_{i+1}$ for some point $(x_i, x_{i+1})$ that are important in understanding the construction of the Mandelbrot Set.
+
+\section{Orbits}
+In the previous section we introduced the concept of \textit{iterating} a function $f$ over an initial input $x_0$.  The \textit{orbit} of $x_0$ under $f$ is the sequence of points that result from iterating $f$ over its initial input $x_0$.  This initial input is called the \textit{seed} of the orbit. \\
+
+There are many different kinds of orbits, but the most important one, which we will look at first, is called a \textit{fixed orbit}, where $f(x) = x$.  If you recall from the previous section where we mentioned the point $(x_i, x_{i+1})$, where $x_i = x_{i+1}$ for all $i$, this is a fixed point under our function. An example of fixed points under a function $f$ is the function $f(x) = x^{3}$, where the fixed points are $-1, 0, 1$, as$ f^{n}(-1)=-1$, $f^{n}(0)=0$, and $f^{n}(1)=1$ for any $n$. Remember than the $n$ "power" does not actually mean raise the function to the $n$th power, but rather \textit{iterate} the function by composing it $n$ times, i.e. $f^{n}(f^{n-1}(...f^{1}(f^{0}(x_0))..))$.
 
 \end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
