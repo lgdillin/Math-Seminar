@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.1.30)  8 MAR 2019 12:38
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.1.30)  8 MAR 2019 13:59
 entering extended mode
 **./FinalProject.tex
 (FinalProject.tex
@@ -494,34 +494,55 @@ Underfull \hbox (badness 10000) in paragraph at lines 106--107
 
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 108--109
+
+ []
+
 [1
 
 {C:/Users/lgdillin/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
-[2] (FinalProject.aux) ) 
+<./figures/fp-1.png, id=14, 346.29375pt x 346.29375pt>
+File: ./figures/fp-1.png Graphic file (type png)
+<use ./figures/fp-1.png>
+Package pdftex.def Info: ./figures/fp-1.png  used on input line 115.
+(pdftex.def)             Requested size: 209.12683pt x 209.13055pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 121--123
+
+ []
+
+[2 <./figures/fp-1.png>] (FinalProject.aux) ) 
 Here is how much of TeX's memory you used:
- 6413 strings out of 492946
- 98691 string characters out of 3124934
+ 6437 strings out of 492946
+ 99055 string characters out of 3124934
  178392 words of memory out of 3000000
- 10227 multiletter control sequences out of 15000+200000
- 9355 words of font info for 34 fonts, out of 3000000 for 9000
+ 10244 multiletter control sequences out of 15000+200000
+ 10492 words of font info for 38 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,10n,43p,741b,221s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Users/lgdillin/AppData/Local/Programs/MiKTeX 2.9/fo
-nts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/lgdillin/AppData/Local/Progra
-ms/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/lgdillin/AppDa
-ta/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users
-/lgdillin/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr1
-2.pfb><C:/Users/lgdillin/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/a
-msfonts/cm/cmr17.pfb><C:/Users/lgdillin/AppData/Local/Programs/MiKTeX 2.9/fonts
-/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/lgdillin/AppData/Local/Programs/Mi
+ 42i,10n,43p,744b,496s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Users/lgdillin/AppData/Local/P
+rograms/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/lgdillin
+/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:
+/Users/lgdillin/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/c
+m/cmmi7.pfb><C:/Users/lgdillin/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/pu
+blic/amsfonts/cm/cmmi9.pfb><C:/Users/lgdillin/AppData/Local/Programs/MiKTeX 2.9
+/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/lgdillin/AppData/Local/Prog
+rams/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/lgdillin/App
+Data/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Use
+rs/lgdillin/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cm
+r6.pfb><C:/Users/lgdillin/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/
+amsfonts/cm/cmr7.pfb><C:/Users/lgdillin/AppData/Local/Programs/MiKTeX 2.9/fonts
+/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/lgdillin/AppData/Local/Programs/Mi
 KTeX 2.9/fonts/type1/public/amsfonts/cm/cmss12.pfb><C:/Users/lgdillin/AppData/L
 ocal/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/lg
 dillin/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.p
 fb><C:/Users/lgdillin/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsf
-onts/cm/cmti10.pfb>
-Output written on FinalProject.pdf (2 pages, 106865 bytes).
+onts/cm/cmsy9.pfb><C:/Users/lgdillin/AppData/Local/Programs/MiKTeX 2.9/fonts/ty
+pe1/public/amsfonts/cm/cmti10.pfb>
+Output written on FinalProject.pdf (2 pages, 170666 bytes).
 PDF statistics:
- 49 PDF objects out of 1000 (max. 8388607)
+ 72 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 6 words of extra memory for PDF output out of 10000 (max. 10000000)
 

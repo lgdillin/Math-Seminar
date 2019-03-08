@@ -105,7 +105,24 @@ The reason it is worth noting this is there are cases when $x_i = x_{i+1}$ for s
 \section{Orbits}
 In the previous section we introduced the concept of \textit{iterating} a function $f$ over an initial input $x_0$.  The \textit{orbit} of $x_0$ under $f$ is the sequence of points that result from iterating $f$ over its initial input $x_0$.  This initial input is called the \textit{seed} of the orbit. \\
 
-There are many different kinds of orbits, but the most important one, which we will look at first, is called a \textit{fixed orbit}, where $f(x) = x$.  If you recall from the previous section where we mentioned the point $(x_i, x_{i+1})$, where $x_i = x_{i+1}$ for all $i$, this is a fixed point under our function. An example of fixed points under a function $f$ is the function $f(x) = x^{3}$, where the fixed points are $-1, 0, 1$, as$ f^{n}(-1)=-1$, $f^{n}(0)=0$, and $f^{n}(1)=1$ for any $n$. Remember than the $n$ "power" does not actually mean raise the function to the $n$th power, but rather \textit{iterate} the function by composing it $n$ times, i.e. $f^{n}(f^{n-1}(...f^{1}(f^{0}(x_0))..))$.
+There are many different kinds of orbits, but the most important one, which we will look at first, is called a \textit{fixed point}, where $f(x) = x$.  If you recall from the previous section where we mentioned the point $(x_i, x_{i+1})$, where $x_i = x_{i+1}$ for all $i$, this is a fixed point under our function. An example of fixed points under a function $f$ is the function $f(x) = x^{3}$, where the fixed points are $-1, 0, 1$, as$ f^{n}(-1)=-1$, $f^{n}(0)=0$, and $f^{n}(1)=1$ for any $n$. Remember than the $n$ "power" does not actually mean raise the function to the $n$th power, but rather \textit{iterate} the function by composing it $n$ times, i.e. $f^{n}(f^{n-1}(...f^{1}(f^{0}(x_0))..))$. \\
+
+Fixed points may also be found geometrically by graphing the function, as well as the identity function, $y=x$.  Wherever the graph of our function intersects that line, we have a fixed point.  This is true because of what we mentioned earlier about $x_i = x_{i+1}$ for all $i$.  For example, given the function $f(x) = x^{2}$, and super-imposing the identity function $y=x$ over it, we can quickly spot the fixed orbits.
+
+\begin{figure}[!htbp]
+  	\centering
+   	\begin{subfigure}[p]{0.5\linewidth}
+    	\includegraphics[width=\linewidth]{./figures/fp-1.png}
+	\caption{fixed point orbits $\{0,1\}$ of $f(x)=x^{2}$}
+   	\end{subfigure}
+\end{figure} 
+
+Another type of orbit is called the \textit{eventually fixed} orbit.  the orbit of some point $x_0$ is \textit{eventually fixed} if $x_0$ itself is not fixed or periodic, but some point on the orbit of $x_0$ is fixed or periodic.  For example, given the function: 
+$$f^{n}(x_0)=\frac{x_0}{2^{n}}$$
+Given any $x_0 \neq 0$, as $n \rightarrow \infty$, the sequence $\{ \frac{1}{2^{n}} \}$ tends towards 0.  So we can say, the orbit of $x_0$ converges to the fixed point 0, and thus is \textit{eventually fixed}. \\ 
+
+Now, returning to our function $f(x)=x^{2}$, we can graphically analyze the orbits of a given point by tracing how the output of one iteration pipes into the input of the next iteration.  For example, let's choose a point $x_0$ such that $0 < x_0 < 1$, That is, between the two fixed points.  
+
 
 \end{document}
 
