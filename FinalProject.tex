@@ -123,6 +123,106 @@ Given any $x_0 \neq 0$, as $n \rightarrow \infty$, the sequence $\{ \frac{1}{2^{
 
 Now, returning to our function $f(x)=x^{2}$, we can graphically analyze the orbits of a given point by tracing how the output of one iteration pipes into the input of the next iteration.  For example, let's choose a point $x_0$ such that $0 < x_0 < 1$, That is, between the two fixed points.  
 
+\newpage
+We plot our point on the $x$-axis, and apply the function $f(x)=x^{2}$ to our \textit{seed} $x_0$, which takes us up vertically to the curve.
+\begin{figure}[!htbp]
+  	\centering
+   	\begin{subfigure}[p]{0.5\linewidth}
+    	\includegraphics[width=\linewidth]{./figures/fp-2.png}
+	\caption{PLACE HOLDER}
+   	\end{subfigure}
+\end{figure} 
+
+Now recall that we are iterating this function, so the output, i.e. $f(x_0)$ becomes our input for our second iteration.  This is equivalent to drawing a horizontal line from the point $(x_0, f(x_0))$ to the $y=x$ line, such that we are at the point $(f(x_0), f(x_0))$.  Now we want to compute $f^{2}(x_0)$, so we need to draw a vertical line from the point $(f(x_0), f(x_0))$, to the point $(f(x_0), f(f(x_0))) = (f(x_0), f^{2}(x_0))$.
+
+\begin{figure}[!htbp]
+  	\centering
+   	\begin{subfigure}[p]{0.5\linewidth}
+    	\includegraphics[width=\linewidth]{./figures/fp-3.png}
+	\caption{PLACE HOLDER}
+   	\end{subfigure}
+\end{figure} 
+
+By continuing this process of calcuating the point $(x_i, f(x_i)$, then drawing to the identity line to transform the output to the new input, we can find the orbit of our given \textit{seed} under our function $f$.
+
+\begin{figure}[!htbp]
+  	\centering
+   	\begin{subfigure}[p]{0.5\linewidth}
+    	\includegraphics[width=\linewidth]{./figures/fp-4.png}
+	\caption{PLACE HOLDER}
+   	\end{subfigure}
+\end{figure}
+
+So we can infer from this example, that for all points $0 < x_0 < 1$, the orbit is \textit{eventually fixed}, that it converges to 0.  This concept it critical to understanding how values become accepted into the Mandelbrot Set. 
+
+\newpage
+Let's look at the same graph again, but in a different window.  Here we can see again our fixed point of 1, but this time let's choose an $x_0$ such that $x_0 > 1$. If we play the same game, plotting first $(x_0, f(x_0))$, then drawing to the $y=x$ line, and so on, we can see we have much different behavior.
+
+\begin{figure}[!htbp]
+  	\centering
+   	\begin{subfigure}[p]{0.5\linewidth}
+    	\includegraphics[width=\linewidth]{./figures/fp_1-1.png}
+	\caption{PLACE HOLDER}
+   	\end{subfigure}
+\end{figure}
+
+The orbit explodes, or as $n\rightarrow \infty$, the orbit diverges to infinity.  So we can see that orbits are sensitive to the initial seed, that, given a certain function, the initial condition can determine how the function behaves under iteration. \\
+
+We can change this problem, such as, if instead of varying our seed $x_0$, we instead vary the $y$-intercept, $c$.  We can then find for what values of $c$ does the orbit given the seed $x_0 = 0$ explode.  Then our equation will look more like $f(x_0) = x_0^{2} + c$. So for $n=0$, we have $f(0)^{0} = 0^{2} + c$.  Then our first point will be $(0, c)$, our second will be
+$(c, c^2 + c)$, and our third $(c^{2}+c, (c^{2}+c)^{2}+c)$ and so on. \\
+
+So the obvious next question to ask is, for what values of $c$ do we have orbits that explode? Or rather, for what values of $c$ does the orbit converge? Let's try values of $c$ such that $0 < c < 1$, or rather, $c = 1/x$, where $x > 1$. We could constrain $x$ such that $|x| > 1$, but let's just stick to positive numbers for now. So lets begin with our seed 0, and crunch the numbers. 
+
+$$ f^{0}(0) = (0)^{2} + 1/x$$
+$$f^{1}(1/x) = (1/x)^{2} + 1/x = \frac{1}{x^{2}} + \frac{1}{x} = \frac{x^{2}+x}{x^{3}}$$.
+$$f^{2}(\frac{x^{2}+x}{x^{3}}) = (\frac{x^{2}+x}{x^{3}})^{2} + \frac{1}{x} = \frac{x^{4}+2x^{3}+x^{2}}{x^{6}} + \frac{1}{x} = \frac{x^{6}+x^{5}+2x^{4}+x^{3}}{x^{7}}$$
+
+After this the algebra becomes quite bothersome to do by hand, but it appears that the equation will converge to 0, as the equation appears to always be dominated by the $x$-term in the denominator.  But how do we prove this? Also, is it simply values of $c$ between 0 and 1? Or is the criteria something more complicated? 
+
+\newpage
+To check my intuition, I did an empirical test.  I used the R language, which, if you are unfamiliar with, is a computer programming language commonly used in statistical computing. I wrote some code to generate some evenly distributed values of $c$ and compute the behavior of their orbits for $n=50$ iterations. I tested values of $c$ such that $-3  \leq c \leq 3$, and changed $c$ by a value of 0.001 each time. After running, I plotted the points and the corresponding value after 50 iterations.
+
+\begin{figure}[!htbp]
+  	\centering
+   	\begin{subfigure}[p]{0.95\linewidth}
+    	\includegraphics[width=\linewidth]{./figures/growth.png}
+	\caption{PLACE HOLDER}
+   	\end{subfigure}
+\end{figure}
+
+I put a condition on the graph, such that if the absolute value of the orbit was $\geq 10$, positive, or negative infinity, to set the value automatically to 10.  On the right side, the values seem to explode pretty quickly after what appears to be 0.25, but on the left the behavior is more interesting.  The values are scattered all around the place, only exploding around $c < -2$. I'm assuming this is because the negative value of $c$ is doing its best to push down the increasing value of $z^{2}$, where $z$ is the output of the equation from the previous iteration. \\
+
+So my initial assumption that values of $c$ such that $|c| < 1$ gave us a non-exploding orbit was false. So what causes a value of $c$ to have a divergent orbit?  If you recall from earlier, given a seed $x_0$, one of the types of orbits we can have are \textit{eventually fixed}. But there must be a fixed point, where $y=x$ for the orbit to converge to.  If there are no fixed points, then there cannot be any eventually fixed points.  So one thing we may try is to find the fixed points of the equation.  We can use the quadratic equation, but instead of simply solving for when $y=0$, we solve for $y=x$, thus, solve for $z^{2}+c=z$.  This gives us two points, $\frac{1}{2}(1+\sqrt{1-4c})$ and $\frac{1}{2}(1-\sqrt{1-4c})$.  Note that the points are real if and only if $c \leq 1/4$.  This explains why the orbits suddenly diverge on the right side of our plot, because there is no real fixed points, and thus nothing to be eventually fixed to. \\
+
+\newpage
+Now what about the case when $c < -2$? it also seems to diverge, but it has real fixed points. At $c = -2$, the function actually converges exactly to a fixed point 2 in a few iterations.  So why does $-2$ diverge? There are actually a few different kinds of fixed points, \textit{attracting}, \textit{repelling}, and \textit{neutral}.  If we pause for a moment, at look back at our first example, $f(x)=x^{2}$, we have two fixed, points, 0 and 1.  if we select a \textit{seed} $x_0$ such that $0 \leq x_0 < 1$, the orbit is attracted towards 0.  However, if $|x_0| > 1$, then the point is repelled and diverges.  You can re-read and look at the graphical analysis performed on the equation previously in this paper for understanding.  \\
+
+So how do we tell, in general, if a point is \textit{attracting} or \textit{repelling}?  We simply take the derivative of our function, and plug in the fixed point. for some fixed point $x_0$, if $|F'(x_0)| > 1$, then it is a \textit{repelling fixed point}. Otherwise, if $|F'(x_0)| < 1$, then it an \textit{attracting fixed point}. if $|F'(x_0)| = 1$, then it is \textit{neutral}. So in our case, $|F'(0)| = 2(0) < 1$, and $|F'(1)| = 2(1) > 1$.  So since $f(z)=z^{2}-2$ has a \textit{repelling fixed point} at 2, then for any $c>-2$ will diverge. And thus explains why $c$-values in the range $2 \leq c \leq 1/4$ don't diverge towards infinity.
+
+% Now talk about the complex plane
+
+
+
+\newpage
+\begin{verbatim}
+init.values = seq(-3, 3, 0.001)
+growth = rep(0, length(init.values))
+n = 50
+for(i in 1:length(init.values)) {
+  z = 0
+  c = init.values[i]
+  for(j in 1:n) {
+    z = z^(2) + c
+  }
+  if(!is.finite(z) || abs(z) > 10) {
+    growth[i] = 10
+  } else {
+    growth[i] = z 
+  }
+}
+plot(init.values, growth, 
+  xlab = "Given y-intercept", ylab = "Orbit Value", main = "z = z^(2) + c")
+\end{verbatim}
 
 \end{document}
 
