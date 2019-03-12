@@ -20,8 +20,11 @@ plot(init.values, growth, xlab = "Given y-intercept", ylab = "Orbit Value", main
 
 
 z = complex(real = 0, imaginary = 0)
-c = complex(real = 0, imaginary = 1)
-n = 200
+c = complex(real = 1, imaginary = -1)
+
+#c= -2
+#z = .5
+n = 20
 for(i in 1:n) {
   z = z^(2) + c
   print(z)
@@ -54,3 +57,35 @@ for(x in length(init.x)) {
 }
 plot(plot.x, plot.y, xlab = "Given y-intercept", 
      ylab = "Orbit Value", main = "z = z^(2) + c", type="p", cex=.2)
+
+
+
+
+in.mandelbrot.set <- function(c, iterations = 20, bound = 2) {
+  z <- 0
+  for (i in 1:iterations) {
+    z <- z ** 2 + c
+    if (Mod(z) > bound) {
+      return(FALSE)
+    }
+  }
+  return(TRUE)
+}
+
+resolution <- 0.001
+sequence <- seq(-1, 1, by = resolution)
+m <- matrix(nrow = length(sequence), ncol = length(sequence))
+for (x in sequence) {
+  for (y in sequence) {
+    mandelbrot <- in.mandelbrot.set(complex(real = x, imaginary = y))
+    m[round((x + resolution + 1) / resolution), round((y + resolution + 1) / resolution)] <- mandelbrot
+  }
+}
+
+jpeg('mandelbrot.jpg')
+image(m)
+dev.off()
+
+
+
+

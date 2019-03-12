@@ -58,6 +58,9 @@
 \renewcommand{\cftsecfont}{\rmfamily\mdseries\upshape}
 \renewcommand{\cftsecpagefont}{\rmfamily\mdseries\upshape} % No bold!
 
+% math symbols
+\usepackage{ amssymb }
+
 %%% Code syntax highliting
 \usepackage{listings}
 %\begin{lstlisting}[language=java]
@@ -201,12 +204,90 @@ So how do we tell, in general, if a point is \textit{attracting} or \textit{repe
 
 % Now talk about the complex plane
 \section{Complex Numbers}
+
+%% REMOVE THIS LATER
+\textit{Note to Dr. Clay: This section is not finished yet, I want to go into more detail about complex systems and the dynamic plane, but I don't understand it enough to write about it yet}\\
+
 So we've spent some time talking about this function $f(z)=z^{2}+c$, but what does this have to do with the Mandelbrot Set? Well the Mandelbrot set works very similar to everything we have described, but instead of acting on the 1-dimensional real number line, it acts on the complex plane.  The complex plane describes a set of numbers of the form $x + iy$ where $x$ is deemed the \textit{real part}, $y$ is the \textit{imaginary part}, and $i$ has the special property $i^{2}=-1$.  It is worthwhile to know the \textit{modulus} of an imaginary number $z$ is denoted as $|z|$, and is defined as $|z|=\sqrt{x^{2}+y^{2}}$. \\
 
 Can we play the same game before, in which for what values of a parameter $c$ causes the orbit to explode, except this time with complex numbers?  
 
 Note that squaring a complex number has the effect of squaring its \textit{modulus}. $z^{2} = (x+iy)(x+iy)=x^{2}-y^{2}+i(2xy)$.
 % now that we have defined what magnitude is, we can start talking about the escape criterion and how things get in the mandelbrot set.
+
+\section{Mandelbrot Set}
+Now that we have finally described all the necessary prerequisite knowledge, we can discuss the point of this paper.  The Mandelbrot Set $\mathcal{M}$ is a subset of the complex plane where $\mathcal{M} = \{c \in \!C \mid | F_c^{n}(0)| \nrightarrow \infty \}$.  for each parameter $c$, we will test if the orbit of 0 tends to infinity.  If it does not, then the point lies within $\mathcal{M}$.
+
+So what orbits explode, and which ones don't? Recall when we were exploring the version of $F_c^{n}(z)=z^{2}+c$ where $z,c\in \!R$.  If you remember, for any value of $c < 2$, the orbit of 0 exploded. But when $c=-2$, the orbit is \textit{eventually fixed} and actually equals its fixed point positive 2 after a few iterations. Similarly, if we select any seed $x_0$ such that $-2 \leq x_0 \leq 2$, it remains \textit{bounded}, where $|F_{-2}^{n}(x_0)| \leq 2$ for all $n$.  Taking this back to our function, If at any point $z$ becomes greater than some bound $K$, then we say the orbit of $z$ is unbounded.  This is interesting to think about in the case of the example we just underlined, $F_{-2}^{n}(z)=z^{2}-2$, because, if at any point $|z|$ steps over its bound of 2, then the orbit has no hope of staying bounded, and is guaranteed to go towards infinity.  This can be also seen in $F_0^{n}(z)=z^{2}$, where the bound is 1.  If $|F_0^{n}(z)| > 1$ for any $n$, then the orbit will certainly goto infinity. \\
+
+% Note that for a complex # |z| = \sqrt(x^2 + y^2).  if that value ends up totalling more than 2, then it will escape. (Something about the unit circle)
+So we can safely say that if $|c|>2$, then the orbit spirals to infinity.  But not all values of $c$ under 2 stay bounded either, we just know that there is no hope for any numbers greater than it. This is where computing comes back into play.  recall that the $n$ in our function $F_c^{n}$ measures the number of iterations.  To compute the Mandelbrot Set, we choose a finite maximum number of iterations, $N$.  Then, for each complex number $c$, we compute $F_c^{N}(z)$, with orbit seed 0.  Then, if at any point, $|F_c^{i}(z)| > 2$ for any $i$, we can stop immediately, as we are guaranteed to have a point diverge, and it is not accepted into the set.  if $|F_c^{i}(z)| > 2$ for all $N$, then it is in the Mandelbrot Set. \\ 
+
+It is important to note that we will always have some margin of error, as there may be some points which take significantly longer iterations of $N$ than we selected to grow past 2. However, by increasing $N$, we can reduce that error.  The exciting part of the Mandelbrot Set comes from its visualization.  If a point is contained in $\mathcal{M}$, then we color it black. Otherwise, we color it white.  And by mapping real and imaginary parts to $(x,y)$ coordinates of an image, we can plot the Mandelbrot Set itself.  Note that we only graph points in the range $[-2,2]$ in both the real and imaginary axis.
+
+\begin{figure}[!htbp]
+  	\centering
+   	\begin{subfigure}[p]{0.7\linewidth}
+    	\includegraphics[width=\linewidth]{./figures/iterationImg.png}
+	\caption{Increasing the value of $N$ improves margin of error}
+   	\end{subfigure}
+\end{figure}
+
+\newpage
+In addition, reducing the space between calculated points will improve the resolution of the image.  This is especially important if one wishes to visualize a smaller section of the set.
+There are additional aspects of information that we can use to improve upon the visualization of the Mandelbrot Set.  For example, we can color the points based on the speed at which $|z|$ grows past 2.  For example, if $|z|$ grows past 2 in just a few iterations, then we color it red.  If it does so in the last few iterations up to $N$, then we color it a deep purple.  And we proportionally color all the points between in their respective gradient color. Recall that a point is only black if it is actually in the set.
+
+\begin{figure}[!htbp]
+  	\centering
+   	\begin{subfigure}[p]{0.6\linewidth}
+    	\includegraphics[width=\linewidth]{./figures/Mandel_zoom.jpg}
+	\caption{PLACE HOLDER}
+   	\end{subfigure}
+\end{figure}
+
+\begin{figure}[!htbp]
+  	\centering
+   	\begin{subfigure}[]{0.6\linewidth}
+    	\includegraphics[width=\linewidth]{./figures/Mandel_zoom1.jpg}
+	\caption{PLACE HOLDER}
+   	\end{subfigure}
+\end{figure}
+\newpage
+
+I've also included some R code that you can use to construct your own Mandelbrot Set.  
+
+\textit{NOTE: this code is not very flexible, and I hope to have something that allows for more freedom in the final report.}
+
+\begin{lstlisting}[language=R]
+in.mandelbrot.set <- function(c, iterations = 20, bound = 2) {
+  z <- 0
+  for (i in 1:iterations) {
+    z <- z ** 2 + c
+    if (Mod(z) > bound) {
+      return(FALSE)
+    }
+  }
+  return(TRUE)
+}
+
+resolution <- 0.001
+sequence <- seq(-1, 1, by = resolution)
+m <- matrix(nrow = length(sequence), ncol = length(sequence))
+for (x in sequence) {
+  for (y in sequence) {
+    mandelbrot <- in.mandelbrot.set(complex(real = x, imaginary = y))
+    m[round((x + resolution + 1) / resolution), round((y + resolution + 1) / resolution)] <- mandelbrot
+  }
+}
+
+jpeg('mandelbrot.jpg')
+image(m)
+dev.off()
+\end{lstlisting}
+
+
+This will save an output image of the mandelbrot set at the given "zoom" to your home directory ("\textit{~}" on Unix systems, or "\textit{My Documents}" on Windows).
+
 \end{document}
 
 
