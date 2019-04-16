@@ -60,7 +60,7 @@
 
 % math symbols
 \usepackage{ amssymb }
-
+\usepackage{url}
 %%% Code syntax highliting
 \usepackage{listings}
 %\begin{lstlisting}[language=java]
@@ -218,7 +218,7 @@ Now that we have finally described all the necessary prerequisite knowledge, we 
 So what orbits explode, and which ones don't? Recall when we were exploring the version of $F_c^{n}(z)=z^{2}+c$ where $z,c\in \!R$.  If you remember, for any value of $c < -2$, the orbit of 0 exploded. But when $c=-2$, the orbit is \textit{eventually fixed} and actually equals its fixed point positive 2 after a few iterations. Similarly, if we select any seed $x_0$ such that $-2 \leq x_0 \leq 2$, it remains \textit{bounded}, where $|F_{-2}^{n}(x_0)| \leq 2$ for all $n$.  Taking this back to our function, If at any point $z$ becomes greater than some bound $K$, then we say the orbit of $z$ is unbounded.  This is interesting to think about in the case of the example we just underlined, $F_{-2}^{n}(z)=z^{2}-2$, because, if at any point $|z|$ steps over its bound of 2, then the orbit has no hope of staying bounded, and is guaranteed to go towards infinity.  This can be also seen in $F_0^{n}(z)=z^{2}$, where the bound is 1.  If $|F_0^{n}(z)| > 1$ for any $n$, then the orbit will certainly goto infinity. \\
 
 % Note that for a complex # |z| = \sqrt(x^2 + y^2).  if that value ends up totalling more than 2, then it will escape. (Something about the unit circle)
-So we can safely say that if $|c|>2$, then the orbit spirals to infinity.  But not all values of $c$ under 2 stay bounded either, we just know that there is no hope for any numbers greater than it. This is where computing comes back into play.  recall that the $n$ in our function $F_c^{n}$ measures the number of iterations.  To compute the Mandelbrot Set, we choose a finite maximum number of iterations, $N$.  Then, for each complex number $c$, we compute $F_c^{N}(z)$, with orbit seed 0.  Then, if at any point, $|F_c^{i}(z)| > 2$ for any $i$, we can stop immediately, as we are guaranteed to have a point diverge, and it is not accepted into the set.  if $|F_c^{i}(z)| > 2$ for all $N$, then it is in the Mandelbrot Set. \\ 
+So we can safely say that if $|c|>2$, then the orbit spirals to infinity.  But not all values of $c$ under 2 stay bounded either, we just know that there is no hope for any numbers greater than it. This is where computing comes back into play.  recall that the $n$ in our function $F_c^{n}$ measures the number of iterations.  To compute the Mandelbrot Set, we choose a finite maximum number of iterations, $N$.  Then, for each complex number $c$, we compute $F_c^{N}(z)$, with orbit seed 0.  Then, if at any point, $|F_c^{i}(z)| > 2$ for any $i$, we can stop immediately, as we are guaranteed to have a point diverge, and it is not accepted into the set.  if $|F_c^{i}(z)| > 2$ for all $N$, then it is in the Mandelbrot Set. 
 
 It is important to note that we will always have some margin of error, as there may be some points which take significantly longer iterations of $N$ than we selected to grow past 2. However, by increasing $N$, we can reduce that error.  The exciting part of the Mandelbrot Set comes from its visualization.  If a point is contained in $\mathcal{M}$, then we color it black. Otherwise, we color it white.  And by mapping real and imaginary parts to $(x,y)$ coordinates of an image, we can plot the Mandelbrot Set itself.  Note that we only graph points in the range $[-2,2]$ in both the real and imaginary axis.
 
@@ -226,7 +226,7 @@ It is important to note that we will always have some margin of error, as there 
   	\centering
    	\begin{subfigure}[p]{0.7\linewidth}
     	\includegraphics[width=\linewidth]{./figures/iterationImg.png}
-	\caption{Increasing the value of $N$ improves margin of error}
+	\caption{Increasing the value of $N$ improves margin of error (Fonesca, 2018)}
    	\end{subfigure}
 \end{figure}
 
@@ -238,7 +238,7 @@ There are additional aspects of information that we can use to improve upon the 
   	\centering
    	\begin{subfigure}[p]{0.6\linewidth}
     	\includegraphics[width=\linewidth]{./figures/Mandel_zoom.jpg}
-	\caption{PLACE HOLDER}
+	\caption{Mandelbrot Set. (Beyer, Wikipedia, 2013)}
    	\end{subfigure}
 \end{figure}
 
@@ -246,14 +246,13 @@ There are additional aspects of information that we can use to improve upon the 
   	\centering
    	\begin{subfigure}[]{0.6\linewidth}
     	\includegraphics[width=\linewidth]{./figures/Mandel_zoom1.jpg}
-	\caption{PLACE HOLDER}
+	\caption{Mandelbrot set zoom. (Beyer, Wikipedia, 2005)}
    	\end{subfigure}
 \end{figure}
 \newpage
 
+If we observe the first picture, we can see that the farthest left point of the graph is the point -2 on the real axis, and the point that exists on the farthest right "heart shape" (known as the main cardioid) is the point $1/4$ on the real axis. This shows that the Mandelbrot Set intersects the real axis at the closed interval $[-2, 1/4]$, precisely as we had shown earlier.  
 I've also included some R code that you can use to construct your own Mandelbrot Set.  
-
-\textit{NOTE: this code is not very flexible, and I hope to have something that allows for more freedom in the final report.}
 
 \begin{lstlisting}[language=R]
 in.mandelbrot.set <- function(c, iterations = 20, bound = 2) {
@@ -280,20 +279,23 @@ for (x in sequence) {
 jpeg('mandelbrot.jpg')
 image(m)
 dev.off()
-\end{lstlisting}
 
+# (Unknown author, n.d.)
+\end{lstlisting}
 
 This will save an output image of the mandelbrot set at the given "zoom" to your home directory ("" on Unix systems, or "\textit{My Documents}" on Windows).
 
 \section{References}
 \begin{enumerate}
-\item Devaney, R. (1992). \textit{A First Course in Chaotic Dynamical Systems.} Reading, MA: Addison-Wesley.
-\item Benoit Mandelbrot. (1999, July). Retrieved April 13, 2019, from \textit{http://www-history.mcs.st-and.ac.uk/Biographies/Mandelbrot.html}
-\item Cunningham, J. (n.d.). Benoit Mandelbrot. Retrieved April 14, 2019, from\\ \textit{https://www.britannica.com/biography/Benoit-Mandelbrot}
+\item Devaney, R. (1992). \url{A First Course in Chaotic Dynamical Systems.} Reading, MA: Addison-Wesley.
+\item Benoit Mandelbrot. (1999, July). Retrieved April 13, 2019, from \url{http://www-history.mcs.st-and.ac.uk/Biographies/Mandelbrot.html}
+\item Cunningham, J. (n.d.). Benoit Mandelbrot. Retrieved April 14, 2019, from\\ \url{https://www.britannica.com/biography/Benoit-Mandelbrot}
 \end{enumerate}
 \subsection{Images}
 \begin{enumerate}
-\item Fonesca, R. 2018. \textit{Mandelbrot Iterations http://renatofonseca.net/mandelbrotset.php}
+\item Fonesca, R. 2018. \url{Mandelbrot Iterations http://renatofonseca.net/mandelbrotset.php}
+\item Beyer, W. 2013 \url{https://en.wikipedia.org/wiki/Mandelbrot_set=#/media/File:Mandel_zoom_00_mandelbrot_set.jpg}
+\item Beyer, W. 2005 \url{https://commons.wikimedia.org/wiki/User:Wolfgangbeyer#/media/File:Mandel_zoom_11_satellite_double_spiral.jpg}
 \end{enumerate}
 \end{document}
 
